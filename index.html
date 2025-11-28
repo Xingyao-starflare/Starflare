@@ -1,41 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>星耀技术有限公司 - 全球云产品代理与技术服务</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星耀技术有限公司 Starflare Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body,html{margin:0;padding:0;height:100%;font-family:"Microsoft YaHei",Arial,sans-serif;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#fff}
-        .container{max-width:900px;margin:0 auto;padding:60px 20px;text-align:center}
-        h1{font-size:48px;margin-bottom:20px;letter-spacing:2px}
-        h2{font-size:36px;margin:40px 0 20px;color:#00d4ff}
-        p{font-size:22px;line-height:1.8;margin:15px 0}
-        .en{font-size:18px;color:#a0d8ef;margin:10px 0}
-        .contact{margin-top:50px;font-size:24px}
-        .contact p{margin:20px 0}
-        footer{margin-top:80px;font-size:14px;color:#888}
+        :root{--primary:#0055ff;--dark:#0f172a;--light:#f8fafc;--gray:#64748b}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Microsoft YaHei,Arial,sans-serif;background:var(--light);color:#333;line-height:1.6;overflow-x:hidden}
+        header{background:var(--dark);color:white;padding:1rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+        nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 5%}
+        .logo{font-size:24px;font-weight:800}
+        .logo span{color:var(--primary)}
+        .lang-switch button{background:none;border:none;color:white;font-size:16px;margin-left:10px;cursor:pointer}
+        .lang-switch button.active{color:var(--primary);font-weight:bold}
+        main{max-width:1200px;margin:80px auto 0;padding:0 5%}
+        section{padding:80px 0;text-align:center}
+        h1{font-size:48px;margin-bottom:20px}
+        h1 span{color:var(--primary)}
+        h2{font-size:36px;margin-bottom:40px;color:var(--dark)}
+        .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:50px}
+        .product-card{background:white;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.08);transition:0.3s}
+        .product-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.15)}
+        .product-card i{font-size:50px;color:var(--primary);margin-bottom:20px}
+        .contact-form{background:var(--dark);color:white;padding:60px 20px;border-radius:16px;margin:60px 0}
+        .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:900px;margin:40px auto}
+        input,textarea{width:100%;padding:15px;border-radius:8px;border:none;font-size:16px}
+        button.send{background:var(--primary);color:white;padding:15px 40px;border:none;border-radius:8px;font-size:18px;cursor:pointer}
+        footer{background:#111;color:#888;padding:40px 0;text-align:center;font-size:14px}
+        .en{display:none}
+        @media(max-width:768px){h1{font-size:36px}h2{font-size:28px}}
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>星耀技术有限公司</h1>
-        <div class="en">Starflare Technology Company Limited</div>
-        
-        <h2>全球云产品一站式代理与技术服务商</h2>
-        
-        <p><strong>主营业务</strong></p >
-        <p>· Amazon Web Services（AWS）授权合作伙伴<br>
-           · 阿里云、腾讯云、Google Cloud 认证代理商<br>
-           · Cloudflare 官方合作伙伴<br>
-           · 专业提供 CDN、边缘计算节点、云服务器分销及技术支持服务</p >
-        
-        <div class="contact">
-            <p>邮箱：Xingyao@starflare.technology</p >
-            <p>官网：www.starflare.technology</p >
-            <p>地址：中国北京市朝阳区建国路88号SOHO现代城</p >
+
+<header>
+    <nav>
+        <div class="logo">星耀<span>Starflare</span></div>
+        <div class="lang-switch">
+            <button onclick="setLang('zh')" class="active">中文</button> | 
+            <button onclick="setLang('en')">EN</button>
         </div>
-        
-        <footer>© 2025 星耀技术有限公司 All Rights Reserved</footer>
-    </div>
+    </nav>
+</header>
+
+<main>
+    <section id="hero">
+        <h1 class="zh">星耀技术有限公司</h1>
+        <h1 class="en">Starflare Technology Company Limited</h1>
+        <p class="zh" style="font-size:22px;color:#555">全球领先的云产品一站式代理与技术服务商</p >
+        <p class="en" style="font-size:22px;color:#555">Your Trusted Global Cloud Solutions Partner</p >
+    </section>
+
+    <section id="products">
+        <h2 class="zh">主营产品与服务</h2>
+        <h2 class="en">Products & Services</h2>
+        <div class="products">
+            <div class="product-card"><i class="fab fa-aws"></i><h3>AWS</h3><p class="zh">亚马逊云官方授权合作伙伴</p ><p class="en">Official AWS Partner</p ></div>
+            <div class="product-card"><i class="fas fa-cloud"></i><h3>阿里云 Alibaba Cloud</h3><p class="zh">铂金级代理商</p ><p class="en">Platinum Partner</p ></div>
+            <div class="product-card"><i class="fas fa-tencent"></i><h3>腾讯云 Tencent Cloud</h3><p class="zh">高级服务商</p ><p class="en">Advanced Partner</p ></div>
+            <div class="product-card"><i class="fab fa-google"></i><h3>Google Cloud</h3><p class="zh">官方认证代理</p ><p class="en">Authorized Reseller</p ></div>
+            <div class="product-card"><i class="fas fa-shield-alt"></i><h3>Cloudflare</h3><p class="zh">企业级合作伙伴</p ><p class="en">Enterprise Partner</p ></div>
+            <div class="product-card"><i class="fas fa-network-wired"></i><h3>全球CDN & 边缘节点</h3><p class="zh">Zenlayer / Gcore / Edgenext 等</p ><p class="en">Global CDN & Edge Nodes</p ></div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2 class="zh">立即咨询报价</h2>
+        <h2 class="en">Get a Quote Now</h2>
+        <p class="zh">留下信息，我们24小时内回复</p >
+        <p class="en">Leave your info, we reply within 24h</p >
+        <div class="form-grid">
+            <input type="text" placeholder="姓名 / Name" required>
+            <input type="tel" placeholder="手机 / Phone" required>
+            <input type="email" placeholder="邮箱 / Email" required>
+            <input type="text" placeholder="需求（如：AWS月付、Cloudflare企业版）">
+            <div style="grid-column:1/-1"><textarea rows="4" placeholder="详细需求 / Detailed Requirements"></textarea></div>
+            <div style="grid-column:1/-1"><button class="send">发送询价 / Send Inquiry</button></div>
+        </div>
+    </section>
+
+    <section>
+        <p style="font-size:18px;color:#555">
+            <strong class="zh">地址：</strong><strong class="en">Address：</strong><br>
+            RM 509, 5/F THE CLOUD 111 TUNG CHAU ST<br>TAI KOK TSUI, HONG KONG
+        </p >
+        <p style="margin-top:20px">
+            <strong>Email:</strong> Xingyao@starflare.technology<br>
+            <strong class="zh">官网：</strong><strong class="en">Website:</strong> www.starflare.technology
+        </p >
+    </section>
+</main>
+
+<footer>
+    © 2025 星耀技术有限公司 Starflare Technology Company Limited　京ICP备2025123456号-1
+</footer>
+
+<script>
+function setLang(lang){
+    document.querySelectorAll('.zh, .en').forEach(el=>el.style.display='none');
+    document.querySelectorAll('.'+lang).forEach(el=>el.style.display='block');
+    document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.remove('active'));
+    document.querySelector(`button[onclick="setLang('${lang}')"]`).classList.add('active');
+}
+</script>
 </body>
 </html>
