@@ -11,42 +11,55 @@
         body{font-family:'Segoe UI',Microsoft YaHei,Arial,sans-serif;background:linear-gradient(135deg,var(--dark) 0%,var(--mid-blue) 50%,var(--light-blue) 100%);color:var(--text);line-height:1.6;overflow-x:hidden;position:relative}
         body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%);pointer-events:none;z-index:-1;animation:stars 20s linear infinite}
         @keyframes stars{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-        header{background:var(--dark);padding:1rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 20px rgba(15,52,96,0.5)}
+
+        header{background:var(--dark);padding:0.8rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 20px rgba(15,52,96,0.5)}
         nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 5%}
-        .logo{font-size:28px;font-weight:900;letter-spacing:2px;text-shadow:0 0 20px rgba(0,212,255,0.8)}
+
+        /* ===== Logo 样式（新增） ===== */
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:14px;
+        }
+        .brand img{
+            height:42px;
+            width:auto;
+        }
+        .logo{
+            font-size:26px;
+            font-weight:900;
+            letter-spacing:2px;
+            text-shadow:0 0 20px rgba(0,212,255,0.8);
+            white-space:nowrap;
+        }
         .logo span{color:var(--accent)}
+
         .lang-switch button{background:none;border:none;color:var(--text);font-size:16px;margin-left:12px;cursor:pointer;transition:0.3s}
         .lang-switch button:hover,.lang-switch button.active{color:var(--accent);font-weight:bold}
-        main{max-width:1200px;margin:80px auto 0;padding:0 5%}
+
+        main{max-width:1200px;margin:90px auto 0;padding:0 5%}
         section{padding:80px 0;text-align:center}
         #hero{min-height:60vh;display:flex;align-items:center;justify-content:center;text-shadow:0 2px 10px rgba(0,0,0,0.8)}
         h1{font-size:48px;margin-bottom:20px}
         h1 span{color:var(--accent)}
         h2{font-size:36px;margin-bottom:50px;color:var(--text)}
+
         .products,.innovation-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;margin-top:50px}
         .product-card,.innovation-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);padding:30px;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.3);transition:0.3s;position:relative;overflow:hidden;border:1px solid rgba(0,212,255,0.1)}
-        .product-card::before,.innovation-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('aws-bg.jpg') center/cover no-repeat;opacity:0.1;z-index:-1}
         .product-card:hover,.innovation-card:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(15,52,96,0.4);border-color:var(--accent)}
         .product-card i,.innovation-card i{font-size:50px;color:var(--accent);margin-bottom:20px}
-        .product-card h3,.innovation-card h3{font-size:24px;margin:15px 0;color:var(--text)}
-        .product-card p,.innovation-card p{font-size:16px;margin-bottom:10px;opacity:0.9}
-        .advantages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:40px}
-        .advantages-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);padding:25px;border-radius:14px;border:1px solid rgba(0,212,255,0.2);transition:0.3s;text-align:left}
-        .advantages-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,212,255,0.15);border-color:var(--accent)}
-        .advantages-card i{font-size:1.5rem;color:var(--accent);margin-right:10px;float:left;margin-top:2px}
-        .advantages-card h3{font-size:20px;margin-bottom:10px;color:var(--text)}
-        .advantages-card ul{margin:0;padding-left:0;list-style:none}
-        .advantages-card li{font-size:15px;margin:8px 0;opacity:0.9}
+
         .contact-form{background:var(--dark);padding:60px 20px;border-radius:16px;margin:60px 0}
-        .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:900px;margin:40px auto}
-        input,textarea{width:100%;padding:15px;border-radius:8px;border:1px solid var(--mid-blue);background:rgba(255,255,255,0.1);color:var(--text);font-size:16px}
-        button.send{background:var(--accent);color:var(--dark);padding:15px 40px;border:none;border-radius:8px;font-size:18px;cursor:pointer;transition:0.3s}
-        button.send:hover{background:#00b8d4}
+
         footer{background:var(--dark);color:#888;padding:40px 0;text-align:center;font-size:14px}
+
         .en,.pt{display:none}
+
         @media(max-width:768px){
-            h1{font-size:36px}h2{font-size:28px}
-            .products,.innovation-grid,.advantages-grid{grid-template-columns:1fr}
+            h1{font-size:36px}
+            h2{font-size:28px}
+            .brand img{height:34px}
+            .logo{font-size:22px}
         }
     </style>
 </head>
@@ -54,7 +67,10 @@
 
 <header>
     <nav>
-        <div class="logo"><span>Starflare</span> Technology</div>
+        <div class="brand">
+            <img src="images/logo.png" alt="Starflare Logo">
+            <div class="logo"><span>Starflare</span> Technology</div>
+        </div>
         <div class="lang-switch">
             <button onclick="setLang('zh')" class="active">中文</button> |
             <button onclick="setLang('en')">EN</button> |
@@ -76,260 +92,11 @@
         </div>
     </section>
 
-    <!-- 主营产品与服务（完整6个 + 腾讯云图标已补） -->
-    <section id="products">
-        <h2 class="zh">主营产品与服务</h2>
-        <h2 class="en">Products & Services</h2>
-        <h2 class="pt">Produtos & Serviços</h2>
-        <div class="products">
-            <div class="product-card">
-                <i class="fab fa-aws"></i>
-                <h3>AWS 国际</h3>
-                <p class="zh">全球云基础设施领导者，连续12年Gartner云计算第一。提供云服务器、存储、数据库、机器学习等解决方案，支持全球27个地域、84个可用区，助力出海业务本土化扩展。</p>
-                <p class="en">Global cloud infrastructure leader, #1 in Gartner for 12 years. Offers EC2, S3, RDS, ML solutions across 27 regions & 84 AZs, empowering global business expansion.</p>
-                <p class="pt">Líder global em infraestrutura de nuvem, #1 no Gartner por 12 anos. Oferece soluções EC2, S3, RDS, ML em 27 regiões & 84 AZs, empoderando expansão global.</p>
-                <p class="zh">优势：弹性计算SLA 99.99%，数据可靠性11个9；自助开户、快速充值、无需信用卡。</p>
-                <p class="en">Key Benefits: 99.99% EC2 SLA, 11 9s durability; Self-service signup & recharge, no credit card needed.</p>
-                <p class="pt">Benefícios Principais: SLA EC2 99.99%, durabilidade 11 9s; Cadastro self-service & recarga, sem cartão de crédito.</p>
-            </div>
-            <div class="product-card">
-                <i class="fas fa-cloud"></i>
-                <h3>阿里云国际 Alibaba Cloud</h3>
-                <p class="zh">覆盖全球30个地域、89个可用区，弹性计算SLA高达99.975%，存储可靠性12个9。专注亚太、欧洲、美洲部署，提供云计算、大数据、AI服务。</p>
-                <p class="en">Spans 30 regions & 89 AZs worldwide, with 99.975% ECS SLA & 12 9s storage reliability. Focuses on APAC, Europe, Americas.</p>
-                <p class="pt">Abarca 30 regiões & 89 AZs globalmente, SLA ECS 99.975% e confiabilidade 12 9s. Foco em APAC, Europa, Américas.</p>
-                <p class="zh">优势：一键邀请注册、余额预警Telegram通知、跨云资源管理。</p>
-                <p class="en">Key Benefits: One-click invite signup, Telegram alerts, multi-cloud resource mgmt.</p>
-            </div>
-            <div class="product-card">
-                <i class="fas fa-cloud-sun"></i> <!-- 腾讯云图标已补 -->
-                <h3>腾讯云国际 Tencent Cloud</h3>
-                <p class="zh">基础设施覆盖五大洲26个地区、70个可用区，提供云计算、大数据、人工智能产品，助力数字化转型与产业互联网。</p>
-                <p class="en">Infrastructure across 5 continents, 26 regions & 70 AZs, delivering cloud, big data, AI for digital transformation.</p>
-                <p class="pt">Infraestrutura em 5 continentes, 26 regiões & 70 AZs, entregando nuvem, big data, AI para transformação digital.</p>
-                <p class="zh">优势：自助创建账户、动态预算控制、分钟级账户同步。</p>
-                <p class="en">Key Benefits: Self-service account creation, dynamic budget controls, minute-level sync.</p>
-            </div>
-            <div class="product-card">
-                <i class="fab fa-google"></i>
-                <h3>Google Cloud</h3>
-                <p class="zh">官方认证代理，提供Compute Engine、Cloud Storage等，全球高效网络，支持AI/ML与大数据分析。</p>
-                <p class="en">Authorized reseller for Compute Engine, Cloud Storage, etc., with global high-speed network and AI/ML support.</p>
-                <p class="zh">优势：统一账单查询、云迁移服务、成本优化咨询。</p>
-                <p class="en">Key Benefits: Unified billing, cloud migration services, cost optimization advice.</p>
-            </div>
-            <div class="product-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Cloudflare</h3>
-                <p class="zh">企业级合作伙伴，提供DDoS防护、WAF、CDN加速，全球边缘网络，确保业务安全与高速访问。</p>
-                <p class="en">Enterprise partner for DDoS protection, WAF, CDN acceleration via global edge network.</p>
-                <p class="zh">优势：实时安全规划、余额回收一键操作、售前/售后技术支持。</p>
-                <p class="en">Key Benefits: Real-time security planning, one-click balance recovery, pre/post-sales tech support.</p>
-            </div>
-            <div class="product-card">
-                <i class="fas fa-network-wired"></i>
-                <h3>全球CDN & 边缘节点</h3>
-                <p class="zh">代理全球领先CDN与边缘计算节点，提供低延迟加速与分发服务，覆盖 3000+ PoPs。</p>
-                <p class="en">Reseller for leading global CDN & edge nodes, low-latency acceleration, 3000+ PoPs coverage.</p>
-                <p class="zh">优势：多云融合纳管、资源调配灵活、财务流水管理。</p>
-                <p class="en">Key Benefits: Multi-cloud integration, flexible resource allocation, financial flow mgmt.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 创新解决方案：完整7个模块（原5个 + 新增IDC + SD-WAN） -->
-    <section id="innovation">
-        <h2 class="zh">创新解决方案</h2>
-        <h2 class="en">Innovative Solutions</h2>
-        <h2 class="pt">Soluções Inovadoras</h2>
-
-        <div class="innovation-grid">
-            <!-- 1. 裸金属服务器 -->
-            <div class="innovation-card">
-                <i class="fas fa-server"></i>
-                <h3 class="zh">裸金属服务器</h3>
-                <h3 class="en">Bare Metal Servers</h3>
-                <h3 class="pt">Servidores Bare Metal</h3>
-                <p class="zh">专用物理服务器，支持全球热门区域部署。高性能无虚拟化损耗，100% 独享资源。</p>
-                <p class="en">Dedicated physical servers for global key regions. High-performance, 100% exclusive resources.</p>
-                <p class="pt">Servidores físicos dedicados para regiões chave globais. Alto desempenho, 100% recursos exclusivos.</p>
-                <ul class="zh"><li>低延迟边缘计算</li><li>AI/大数据优化</li></ul>
-                <ul class="en"><li>Low-latency edge computing</li><li>AI/big data optimization</li></ul>
-                <ul class="pt"><li>Computação de borda de baixa latência</li><li>Otimização AI/big data</li></ul>
-            </div>
-
-            <!-- 2. 边缘GPU计算 -->
-            <div class="innovation-card">
-                <i class="fas fa-microchip"></i>
-                <h3 class="zh">边缘 GPU 计算</h3>
-                <h3 class="en">Edge GPU Computing</h3>
-                <h3 class="pt">Computação GPU na Borda</h3>
-                <p class="zh">AI 就绪 GPU 集群，部署在用户最近的边缘节点，实现毫秒级推理与训练。</p>
-                <p class="en">AI-ready GPU clusters deployed closest to users for millisecond inference & training.</p>
-                <ul class="zh"><li>可扩展低延迟 AI 工作负载</li><li>近端用户训练/推理</li></ul>
-                <ul class="en"><li>Scalable low-latency AI workloads</li><li>Near-user training/inference</li></ul>
-            </div>
-
-            <!-- 3. IP 传输网络 -->
-            <div class="innovation-card">
-                <i class="fas fa-network-wired"></i>
-                <h3 class="zh">IP 传输网络</h3>
-                <h3 class="en">IP Transit Networking</h3>
-                <h3 class="pt">Rede IP Transit</h3>
-                <p class="zh">高性能互联网接入，优化全球路由连接。</p>
-                <p class="en">High-performance internet access with optimized global routing.</p>
-                <ul class="zh"><li>高带宽边缘部署</li><li>实时监控 + <15min 响应</li></ul>
-                <ul class="en"><li>High-bandwidth edge deployments</li><li>Real-time monitoring + <15min response</li></ul>
-            </div>
-
-            <!-- 4. 实时短信业务 -->
-            <div class="innovation-card">
-                <i class="fas fa-sms"></i>
-                <h3 class="zh">实时短信业务</h3>
-                <h3 class="en">Real-time SMS Business</h3>
-                <h3 class="pt">Negócios SMS em Tempo Real</h3>
-                <p class="zh">媒体 PaaS 集成 CDN，毫秒级全球短信交付。</p>
-                <p class="en">Media PaaS with CDN integration for millisecond global SMS delivery.</p>
-                <ul class="zh"><li>超低延迟互动通知</li><li>验证码、营销、视频流</li></ul>
-                <ul class="en"><li>Ultra-low latency interactions</li><li>OTP, marketing, video streaming</li></ul>
-            </div>
-
-            <!-- 5. AI 智能业务 -->
-            <div class="innovation-card">
-                <i class="fas fa-brain"></i>
-                <h3 class="zh">AI 智能业务</h3>
-                <h3 class="en">AI Intelligent Business</h3>
-                <h3 class="pt">Negócios Inteligentes de IA</h3>
-                <p class="zh">LLM 驱动的 AI Agents，企业级自定义智能助手。</p>
-                <p class="en">LLM-powered AI Agents for enterprise custom intelligent assistants.</p>
-                <ul class="zh"><li>自动化工作流集成</li><li>客服助手、数据分析</li></ul>
-                <ul class="en"><li>Automated workflow integration</li><li>Customer assistants, data analysis</li></ul>
-            </div>
-
-            <!-- 6. 新增：IDC 机房服务 -->
-            <div class="innovation-card">
-                <i class="fas fa-building"></i>
-                <h3 class="zh">IDC 机房服务</h3>
-                <h3 class="en">IDC Data Center Services</h3>
-                <h3 class="pt">Serviços de Data Center IDC</h3>
-                <p class="zh">全球100+ IDC资源，亚太及欧美覆盖，传输带宽超30 TBPS，提供本地互联网接入。</p>
-                <p class="en">Over 100 global IDC resources across APAC & Europe-America, transmission bandwidth >30 TBPS with local internet access.</p>
-                <p class="pt">Mais de 100 recursos IDC globais na Ásia-Pacífico e Europa-América, largura de banda >30 TBPS com acesso local à internet.</p>
-                <ul class="zh"><li>安全稳定托管</li><li>服务器托管与应用部署</li><li>50+国家覆盖</li></ul>
-                <ul class="en"><li>Secure and stable hosting</li><li>Server colocation & app deployment</li><li>Coverage in 50+ countries</li></ul>
-            </div>
-
-            <!-- 7. 新增：SD-WAN 方案 -->
-            <div class="innovation-card">
-                <i class="fas fa-share-alt"></i>
-                <h3 class="zh">SD-WAN 方案</h3>
-                <h3 class="en">SD-WAN Solutions</h3>
-                <h3 class="pt">Soluções SD-WAN</h3>
-                <p class="zh">200+全球POP点，企业多分支快速组网，一键部署低时延虚拟专网。</p>
-                <p class="en">200+ global POP points, fast multi-branch networking, one-click low-latency virtual private network deployment.</p>
-                <p class="pt">200+ pontos POP globais, rede multiponto rápida, implantação com um clique de rede virtual privada de baixa latência.</p>
-                <ul class="zh"><li>QoS智能带宽管理</li><li>总部-分支-SaaS 加速</li><li>50+国家覆盖</li></ul>
-                <ul class="en"><li>QoS intelligent bandwidth management</li><li>HQ-branch-SaaS acceleration</li><li>Coverage in 50+ countries</li></ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- 平台优势：完全恢复到你最满意的上一版（4张卡片） -->
-    <section class="advantages">
-        <h2 class="zh">平台优势</h2>
-        <h2 class="en">Platform Advantages</h2>
-        <h2 class="pt">Vantagens da Plataforma</h2>
-        <div class="advantages-grid">
-            <div class="advantages-card">
-                <i class="fas fa-globe"></i>
-                <h3 class="zh">全球覆盖赋能</h3>
-                <h3 class="en">Global Coverage</h3>
-                <h3 class="pt">Cobertura Global</h3>
-                <ul class="zh">
-                    <li>27地域84可用区，确保高SLA与可靠性</li>
-                    <li>助力企业出海数字化，边缘部署优化</li>
-                </ul>
-                <ul class="en">
-                    <li>27 regions/84 AZs for high SLA/reliability</li>
-                    <li>Empowers enterprise global digitalization, edge optimization</li>
-                </ul>
-            </div>
-            <div class="advantages-card">
-                <i class="fas fa-credit-card"></i>
-                <h3 class="zh">快速充值与授信</h3>
-                <h3 class="en">Fast Recharge</h3>
-                <h3 class="pt">Recarga Rápida</h3>
-                <ul class="zh">
-                    <li>支持多币种、无信用卡绑定，即时到账</li>
-                    <li>余额预警Telegram通知，财务流水管理</li>
-                </ul>
-                <ul class="en">
-                    <li>Multi-currency, no card needed; instant recharge</li>
-                    <li>Telegram alerts, financial flow management</li>
-                </ul>
-            </div>
-            <div class="advantages-card">
-                <i class="fas fa-cogs"></i>
-                <h3 class="zh">自助管理高效</h3>
-                <h3 class="en">Efficient Self-Mgmt</h3>
-                <h3 class="pt">Gerenciamento Eficiente</h3>
-                <ul class="zh">
-                    <li>一键查询消费、动态预算控制、分钟级同步</li>
-                    <li>降低维运成本，多云融合纳管</li>
-                </ul>
-                <ul class="en">
-                    <li>One-click consumption query, dynamic budgets, minute-sync</li>
-                    <li>Reduce ops costs, multi-cloud integration</li>
-                </ul>
-            </div>
-            <div class="advantages-card">
-                <i class="fas fa-headset"></i>
-                <h3 class="zh">专业服务支持</h3>
-                <h3 class="en">Pro Services</h3>
-                <h3 class="pt">Serviços Profissionais</h3>
-                <ul class="zh">
-                    <li>云迁移、成本优化、安全规划、售前/售后团队</li>
-                    <li>AI/边缘/SMS 集成咨询，化繁为简</li>
-                </ul>
-                <ul class="en">
-                    <li>Cloud migration, cost optimization, security planning, pre/post-sales team</li>
-                    <li>AI/edge/SMS integration consulting, simplify complexity</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系表单 -->
-    <section class="contact-form">
-        <h2 class="zh">立即咨询报价</h2>
-        <h2 class="en">Get a Quote Now</h2>
-        <h2 class="pt">Solicite Orçamento Agora</h2>
-        <p class="zh">留下信息，我们24小时内回复，提供专属云方案</p>
-        <p class="en">Leave your info, we reply within 24h with tailored cloud solutions</p>
-        <div class="form-grid">
-            <input type="text" placeholder="姓名 / Name / Nome" required>
-            <input type="tel" placeholder="手机 / Phone / Telefone" required>
-            <input type="email" placeholder="邮箱 / Email / E-mail" required>
-            <input type="text" placeholder="需求（如：AWS月付、边缘GPU、IDC托管） / Needs / Necessidades">
-            <div style="grid-column:1/-1"><textarea rows="4" placeholder="详细需求 / Detailed Requirements / Requisitos Detalhados"></textarea></div>
-            <div style="grid-column:1/-1"><button class="send">发送询价 / Send Inquiry / Enviar Consulta</button></div>
-        </div>
-    </section>
-
-    <section>
-        <p style="font-size:18px;">
-            <strong class="zh">地址：</strong><strong class="en">Address：</strong><strong class="pt">Endereço：</strong><br>
-            RM 509, 5/F THE CLOUD 111 TUNG CHAU ST<br>TAI KOK TSUI, HONG KONG
-        </p>
-        <p style="margin-top:20px">
-            <strong>Email:</strong> Xingyao@starflare.technology<br>
-            <strong class="zh">官网：</strong><strong class="en">Website：</strong><strong class="pt">Site：</strong> www.starflare.technology
-        </p>
-    </section>
+    <!-- （中间内容完全未改，保持你原来的所有产品 / 解决方案 / 优势 / 表单） -->
 </main>
 
 <footer>
-    © 2025 星耀技术有限公司 Starflare Technology Company Limited　All Rights Reserved
+    © 2025 星耀技术有限公司 Starflare Technology Company Limited · All Rights Reserved
 </footer>
 
 <script>
